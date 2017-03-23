@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Webcal</title>
+        <link rel="stylesheet" type="text/css" href="/resources/styles.css"/>
+    </head>
+    <body>
+        <table class="monthView">
+            <tr>
+                <th>Week</th>
+                {{ range $header := index .Dates 0 }}
+                    <th>{{ $header.Weekday }}</th>
+                {{ end }}
+            </tr>
+            {{ range $index, $row := .Dates }}
+            <tr class="row">
+                <td>{{ index $.Weeks $index }}</td>
+                {{ range $date := $row }}
+                <td class="date">{{ $date.Day }}</td>
+                {{ end }}
+            </tr>
+            {{ end }}
+        </table>
+    </body>
+</html>
